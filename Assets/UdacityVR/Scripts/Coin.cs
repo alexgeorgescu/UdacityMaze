@@ -18,9 +18,8 @@ public class Coin : MonoBehaviour
         Debug.Log("Coin clicked");
 
         // Instantiate the CoinPoof Prefab where this coin is located
-        Instantiate(coinPoofPrefab);
-        coinPoofPrefab.transform.position = transform.position;
-
+        Instantiate(coinPoofPrefab, transform.position,transform.rotation);
+        
         // Make sure the poof animates vertically
         // it does by default, nothing to do
 

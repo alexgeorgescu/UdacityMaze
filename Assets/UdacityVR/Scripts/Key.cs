@@ -23,9 +23,8 @@ public class Key : MonoBehaviour
 	public void OnKeyClicked()
 	{
         // Instatiate the KeyPoof Prefab where this key is located
-        Instantiate(keyPoofPrefab);
-        keyPoofPrefab.transform.position = transform.position;
-
+        Instantiate(keyPoofPrefab, transform.position, transform.rotation);
+        
         // Make sure the poof animates vertically
         // it does, nothing to do
 
