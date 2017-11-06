@@ -5,22 +5,36 @@ using UnityEngine;
 public class GameState : MonoBehaviour {
 
     public bool keyCollected = false;
+    public GameObject collectibles;
+    public TextMesh collectiblesText;
+    public TextMesh keyText;
 
+    private int totalCollectiblesAtStart;
+    private int currentCollectiblesCount;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        totalCollectiblesAtStart = collectibles.transform.childCount;
+        keyText.text = "\nNo key";
+        collectiblesText.text = "0 of " + totalCollectiblesAtStart + " collectibles found!\n";
+    }
 
     public void setKeyCollected(bool state)
     {
         keyCollected = state;
+        if (keyCollected)
+            keyText.text = "\nKey found!";
+        else
+            keyText.text = "\nNo key";
     }
+
+    public void updateCollectiblesTracking()
+    {
+        currentCollectiblesCount = totalCollectiblesAtStart - collectibles.transform.childCount + 1;
+        Debug.Log("You have found " + currentCollectiblesCount + " out of " + totalCollectiblesAtStart);
+        collectiblesText.text = currentCollectiblesCount + " of " + totalCollectiblesAtStart + " collectibles found!\n";
+    }
+
 
 
 }

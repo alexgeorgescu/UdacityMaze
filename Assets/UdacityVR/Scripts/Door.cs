@@ -10,7 +10,16 @@ public class Door : MonoBehaviour
     public bool opening = false;
     public float doorOpeningPosition = 7.5f;
     public float openingSpeed = 3f;
-    
+
+    private AudioSource audioSource;
+    public AudioClip doorOpensClip;
+    public AudioClip doorLockedClip;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update() {
         // If the door is opening and it is not fully raised
         // Animate the door raising up
@@ -26,9 +35,16 @@ public class Door : MonoBehaviour
         // (optionally) Else
         // Play a sound to indicate the door is locked
         if (!locked)
+        {
             opening = true;
+            audioSource.clip = doorOpensClip;
+            audioSource.Play();
+        }
         else
-            ; // play sound
+        {
+            audioSource.clip = doorLockedClip;
+            audioSource.Play();
+        }
     }
 
     public void Unlock()

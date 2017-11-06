@@ -7,6 +7,13 @@ public class Coin : MonoBehaviour
     //Create a reference to the CoinPoofPrefab
     public GameObject coinPoofPrefab;
 
+    private GameState gameState;
+
+    private void Awake()
+    {
+        gameState = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
+    }
+
     public void OnCoinClicked() {
         Debug.Log("Coin clicked");
 
@@ -19,6 +26,7 @@ public class Coin : MonoBehaviour
 
         // Destroy this coin. Check the Unity documentation on how to use Destroy
         Destroy(gameObject);
+        gameState.updateCollectiblesTracking();
     }
 
 }
