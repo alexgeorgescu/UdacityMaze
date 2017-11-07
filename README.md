@@ -10,10 +10,10 @@ I have built this project for Android
 
 ## Additional Information
 ### Time taken
-Update with actual time once finished
+About 15 hours, including 1 hour of debugging
 
 ### What I liked about the project
-Update with a few items I liked
+It was an end to end project, similar to a level in a simple game
 
 ### Greatest challenge 
-Update with challenge
+Performance, had to bake lights (most assets static), also used a mobile diffuse shader that significantly degraded quality, removed antialiasing
